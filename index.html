@@ -1,0 +1,120 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dictionary</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        *{
+            font-family: "Montserrat", serif;
+            font-optical-sizing: auto;
+            font-weight: 500;
+            font-style: normal;
+        }
+        body{
+            background-color: #000;
+            color: #fff;
+        }
+        div{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            background-color: rgb(50, 50, 50);
+            padding-top: 10px; 
+            padding-bottom: 10px; 
+            border-radius: 10px;
+        }
+        
+        button{
+            display: block;
+            background-color: #000;
+            color: #fff;
+            padding: 10px;
+            border-radius: 10px;
+            border: none
+        }
+        span{
+            position: absolute;
+            bottom: 10;
+            background-color: rgb(50, 50, 50);
+            padding: 5px;
+            border-radius: 10px;
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        
+        <h1>Simple Dictionary</h1>
+    
+        <section>
+           <label for="user-input">Enter a letter</label>
+           <input type="text" name="" id="user-input" maxlength="1">  
+        </section>
+   
+        <button>Search</button>
+        <p></p>
+    </div>
+    
+    <span>Made By Tamirat (JamesTk-max) February-4 Tuesday</span>
+    
+    <script>
+        const words = [
+        'apple',
+        'ball',
+        'cat',
+        'dog',
+        'elephant',
+        'fox',
+        'goat',
+        'horse',
+        'ice-cream',
+        'jacket',
+        'kite',
+        'lion',
+        'monkey',
+        'nose',
+        'ostrich',
+        'parrot',
+        'queen',
+        'rat',
+        'spoon',
+        'tiger',
+        'umbrella',
+        'vanilla',
+        'window',
+        'x-ray',
+        'yellow',
+        'zebra'
+        ]
+    
+    const searchButton= document.querySelector('button')
+
+    searchButton.addEventListener('click', ()=>{
+        let userInput =  document.querySelector('input').value.toLowerCase()
+        const p = document.querySelector('p')
+        if (/^[a-zA-Z]$/.test(userInput)) {
+            words.forEach((word)=>{
+            if (word[0] === userInput) {
+                p.textContent = word
+            }
+        })
+        }
+        else{
+            alert('please enter a letter')
+            document.querySelector('input').value = ''
+        }    
+        }
+    )  
+    </script>
+</body>
+</html>
